@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Form, Input, Select, InputNumber, Switch, Radio, Slider, Button } from 'antd'
+import { Form, Input, Select, InputNumber, Radio, Button } from 'antd'
+import useCompanyInfo from '../useCompanyInfo'
 
 const { Option } = Select;
 const formItemLayout = {
@@ -11,18 +12,39 @@ const formItemLayout = {
     },
 };
 
-const CompanyInfo = () => {
+const CompanyInfo = (props) => {
+
+    const { status, opened, info, sendInfo } = useCompanyInfo()
+
+
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
         //存資料到資料庫
-
+        props.setInfoComplete(true);
+        sendInfo({
+            companyName: values.CompanyName,
+            companyNumber: values.CompanyNumber,
+            companyIndustry: values.Industry,
+            annualTurnover: values.AnnualTurnover,
+            levelofGovernance: values.LevelofGovernance,
+            EPS: values.EPS,
+            ROE: values.ROE,
+            annualWaterUsage: values.AnnualWaterUsage,
+            annualWaterReturn: values.AnnualWaterReturn,
+            scope1: values.Scope1,
+            scope2: values.Scope2,
+            scope3: values.Scope3,
+            waste: values.Waste,
+            societyExpense: values.SocietyExpense,
+            societyPerformance: values.SocietyPerformance,
+            volunteer: values.Volunteer,
+            guarantee: values.Guarantee,
+            guaranteeAgency: values.GuaranteeAgency
+        })
     };
 
     return (
-        <Form
-            name="company_info"
-            {...formItemLayout}
-            onFinish={onFinish}>
+        <Form name="company_info" {...formItemLayout} onFinish={onFinish}>
             <h1>企業資本資料</h1>
             <Form.Item
                 label="公司名稱"
@@ -51,7 +73,6 @@ const CompanyInfo = () => {
             <Form.Item
                 label="所屬產業"
                 name="Industry"
-                hasFeedback
                 rules={[
                     {
                         required: true,
@@ -66,12 +87,10 @@ const CompanyInfo = () => {
                 </Select>
             </Form.Item>
 
-            <Form.Item label="年營業額" name="AnnualTurnover" rules={[
-                {
-                    required: true,
-                    message: 'Please enter a number!',
-                },]}>
-                <InputNumber />
+            <Form.Item label="年營業額">
+                <Form.Item name="AnnualTurnover" noStyle>
+                    <InputNumber />
+                </Form.Item>
                 <span className="ant-form-text">萬元</span>
             </Form.Item>
 
@@ -97,112 +116,101 @@ const CompanyInfo = () => {
                 </Select>
             </Form.Item>
 
+            <Form.Item label="該年度每股盈餘 EPS">
+                <Form.Item name="EPS" noStyle>
+                    <InputNumber />
+                </Form.Item>
+                <span className="ant-form-text">元/每股</span>
+            </Form.Item>
+
+            <Form.Item label="該年度權益報酬率 ROE">
+                <Form.Item name="ROE" noStyle>
+                    <InputNumber />
+                </Form.Item>
+                <span className="ant-form-text">%</span>
+            </Form.Item>
+
             <h2>環境 Environment</h2>
 
-            <Form.Item label="總體用水量" name="AnnualWaterUsage" rules={[
-                {
-                    required: true,
-                    message: 'Please enter a number!',
-                },]}>
-                <InputNumber />
+            <Form.Item label="總體用水量">
+                <Form.Item name="AnnualWaterUsage" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
                 <span className="ant-form-text">立方公尺</span>
             </Form.Item>
 
-            <Form.Item label="水資源回收量" name="AnnualWaterReturn" rules={[
-                {
-                    required: true,
-                    message: 'Please enter a number!',
-                },]}>
-                <InputNumber />
+            <Form.Item label="水資源回收量">
+                <Form.Item name="AnnualWaterReturn" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
                 <span className="ant-form-text">立方公尺</span>
             </Form.Item>
 
-            <Form.Item label="溫室氣體範疇一排放量" name="Scope1" rules={[
-                {
-                    required: true,
-                    message: 'Please enter a number!',
-                },]}>
-                <InputNumber />
+            <Form.Item label="溫室氣體範疇一排放量">
+                <Form.Item name="Scope1" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
                 <span className="ant-form-text">公噸二氧化碳當量</span>
             </Form.Item>
 
-            <Form.Item label="溫室氣體範疇二排放量" name="Scope2" rules={[
-                {
-                    required: true,
-                    message: 'Please enter a number!',
-                },]}>
-                <InputNumber />
+            <Form.Item label="溫室氣體範疇二排放量">
+                <Form.Item name="Scope2" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
                 <span className="ant-form-text">公噸二氧化碳當量</span>
             </Form.Item>
 
-            <Form.Item label="溫室氣體範疇三排放量" name="Scope3" rules={[
-                {
-                    required: true,
-                    message: 'Please enter a number!',
-                },]}>
-                <InputNumber />
+            <Form.Item label="溫室氣體範疇三排放量">
+                <Form.Item name="Scope3" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
                 <span className="ant-form-text">公噸二氧化碳當量</span>
             </Form.Item>
 
-            <Form.Item label="廢棄物總重量" name="Waste" rules={[
-                {
-                    required: true,
-                    message: 'Please enter a number!',
-                },]}>
-                <InputNumber />
+            <Form.Item label="廢棄物總重量">
+                <Form.Item name="Waste" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
                 <span className="ant-form-text">公噸</span>
             </Form.Item>
 
             <h2>社會 Society</h2>
 
-            <Form.Item name="switch" label="Switch" valuePropName="checked">
-                <Switch />
+            <Form.Item label="投入社會公益總支出">
+                <Form.Item name="SocietyExpense" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
+                <span className="ant-form-text">萬元</span>
             </Form.Item>
 
-            <Form.Item name="slider" label="Slider">
-                <Slider
-                    marks={{
-                        0: 'A',
-                        20: 'B',
-                        40: 'C',
-                        60: 'D',
-                        80: 'E',
-                        100: 'F',
-                    }}
-                />
+            <Form.Item label="投入社會公益總績效">
+                <Form.Item name="SocietyPerformance" noStyle>
+                    <InputNumber />
+                </Form.Item>
+
+                <span className="ant-form-text">萬元</span>
             </Form.Item>
 
-            <Form.Item name="radio-group" label="Radio.Group">
-                <Radio.Group>
-                    <Radio value="a">item 1</Radio>
-                    <Radio value="b">item 2</Radio>
-                    <Radio value="c">item 3</Radio>
-                </Radio.Group>
-            </Form.Item>
+            <Form.Item label="投入社會公益志工總人次">
+                <Form.Item name="Volunteer" noStyle>
+                    <InputNumber />
+                </Form.Item>
 
-            <Form.Item
-                name="radio-button"
-                label="Radio.Button"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please pick an item!',
-                    },
-                ]}
-            >
-                <Radio.Group>
-                    <Radio.Button value="a">item 1</Radio.Button>
-                    <Radio.Button value="b">item 2</Radio.Button>
-                    <Radio.Button value="c">item 3</Radio.Button>
-                </Radio.Group>
+                <span className="ant-form-text">人次</span>
             </Form.Item>
 
             <Form.Item name="Guarantee" label="以上資料是否獲第三方認證" rules={[
                 {
                     required: true,
                     message: 'Please pick an item!',
-                },
-            ]}>
+                },]}>
                 <Radio.Group>
                     <Radio value="yes">是</Radio>
                     <Radio value="no">否</Radio>
@@ -216,8 +224,7 @@ const CompanyInfo = () => {
                     {
                         required: true,
                         message: 'Please pick an option!',
-                    },
-                ]}>
+                    },]}>
                 <Select placeholder="Please select an option">
                     <Option value="NA">無，未接受第三方認證</Option>
                     <Option value="EY">安永聯合會計師事務所 (EY)</Option>

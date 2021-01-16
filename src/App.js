@@ -7,7 +7,7 @@ import { Form, Button, Input, Checkbox, message, Tag } from 'antd'
 
 function App() {
   const [login, setLogin] = useState(false)
-  const [info, setInfo] = useState(false)
+  const [infoComplete, setInfoComplete] = useState(false)
 
   const { status, opened, messages, sendMessage, clearMessages } = useChat()
 
@@ -50,9 +50,9 @@ function App() {
           <Login login={login} setLogin={setLogin} />
         </div>
       ) : (
-        (info === false) ?
+        (infoComplete === false) ?
           (
-            <CompanyInfo />
+            <CompanyInfo infoComplete={infoComplete} setInfoComplete={setInfoComplete}/>
           ) : (
             <div className="App">
               <div className="App-title">

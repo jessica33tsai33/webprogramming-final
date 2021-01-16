@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const WebSocket = require('ws')
 
 const Message = require('./models/message')
+const CompanyInfo = require('./models/companyInfo')
 
 const app = express()
 const server = http.createServer(app)
@@ -39,27 +40,13 @@ db.once('open', () => {
       sendData(['status', s])
     }
 
-    Message.find()
-      .limit(100)
-      .sort({ _id: 1 })
-      .exec((err, res) => {
-        if (err) throw err
-
-        // initialize app with existing messages
-        sendData(['init', res])
-      })
-
     ws.onmessage = (message) => {
       const { data } = message
       const [task, payload] = JSON.parse(data)
 
       switch (task) {
         case 'input': {
-          // TODO
-          // console.log(payload);
-          Message.insertMany(payload, () => {
-            // console.log(payload.name);
-            // console.log(payload.body);
+          CompanyInfo.insertMany(payload, () => {
             sendData(['output', [payload]])
 
             sendStatus({
@@ -67,20 +54,6 @@ db.once('open', () => {
               msg: 'Message inputed'
             })
           })
-          
-          // console.log('after insertMany')
-          break
-        }
-        case 'clear': {
-          Message.deleteMany({}, () => {
-            sendData(['cleared'])
-
-            sendStatus({
-              type: 'info',
-              msg: 'Message cache cleared.'
-            })
-          })
-
           break
         }
         default:

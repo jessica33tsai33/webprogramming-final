@@ -31,7 +31,6 @@ const Login = (props) => {
             props.setLogin(false)
             setErrormsg(true)
         }
-
     };
 
     const onFinishFailed = (errorInfo) => {
