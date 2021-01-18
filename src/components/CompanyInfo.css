@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     /* height: 100vh; */
-    width: 500px;
+    width: 1000px;
     margin: auto;
 }
 
@@ -25,6 +25,14 @@
 }
 
 .Company-data p{
-    margin-bottom: 5px;
-    margin-top: 15px;
+    margin-bottom: 0px;
+    /* margin-top: 15px; */
+}
+
+.Company-data Input{
+    cursor: auto;
+    color: #a2a0a0;
+    width: 80%;
+    margin-bottom: 15px;
+    margin-top: 5px;
 }
