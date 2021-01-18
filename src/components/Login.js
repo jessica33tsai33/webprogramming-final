@@ -1,19 +1,20 @@
+import './Login.css'
 import React, { useState } from 'react'
 import { Form, Input, Button, Checkbox } from 'antd';
 
 //form style
 const layout = {
     labelCol: {
-        span: 8,
+        span: 10,
     },
     wrapperCol: {
-        span: 16,
+        span: 5,
     },
 };
 const tailLayout = {
     wrapperCol: {
-        offset: 8,
-        span: 16,
+        offset: 10,
+        span: 5,
     },
 };
 
@@ -38,41 +39,43 @@ const Login = (props) => {
     };
 
     return (
-        <Form {...layout} name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed}>
-            <Form.Item
-                label="Username"
-                name="username"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input your username!',
-                    },
-                ]}>
-                <Input />
-            </Form.Item>
+        <div className="login">
+            <Form {...layout} name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed}>
+                <Form.Item
+                    label="Username"
+                    name="username"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your username!',
+                        },
+                    ]}>
+                    <Input />
+                </Form.Item>
 
-            <Form.Item
-                label="Password"
-                name="password"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input your password!',
-                    },
-                ]}>
-                <Input.Password />
-            </Form.Item>
+                <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your password!',
+                        },
+                    ]}>
+                    <Input.Password />
+                </Form.Item>
 
-            {(errormsg === true)
-                ? (<div style={{ color: 'red' }}>*You entered a wrong login information, please try again...</div>)
-                : (<div></div>)}
+                {(errormsg === true)
+                    ? (<div style={{ color: 'red' }}>*You entered a wrong login information, please try again...</div>)
+                    : (<div></div>)}
 
-            <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
-                    Submit
+                <Form.Item {...tailLayout}>
+                    <Button type="primary" htmlType="submit">
+                        Submit
                 </Button>
-            </Form.Item>
-        </Form>
+                </Form.Item>
+            </Form>
+        </div>
     );
 };
 
