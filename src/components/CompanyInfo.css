@@ -17,22 +17,53 @@
 .Company-title h1 {
     margin: 0;
     margin-right: 20px;
+    margin-bottom: 30px;
     font-size: 3em;
 }
 
-.Company-data span{
+.Company-data span {
     margin-left: 10px;
 }
 
-.Company-data p{
-    margin-bottom: 0px;
-    /* margin-top: 15px; */
+.Company-data h2 {
+    text-align: center;
 }
 
-.Company-data Input{
-    cursor: auto;
-    color: #a2a0a0;
-    width: 80%;
+.Company-data p {
+    margin-bottom: 0px;
+}
+
+.Company-data .ant-input[disabled] {
+    width: 70%;
     margin-bottom: 15px;
     margin-top: 5px;
+    cursor: auto;
+    color: #a2a0a0;
+}
+
+.ant-row:nth-child(2){
+    justify-content: center;
+}
+
+.ant-row:nth-child(5){
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0 20px 0;
+}
+
+.ant-col{
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.ant-col:nth-child(1) {
+    background-color: rgb(214, 255, 253);
+}
+
+.ant-col:nth-child(2) {
+    background-color: rgb(215, 255, 214);
+}
+
+.ant-col:nth-child(3) {
+    background-color: rgb(251, 255, 214);
 }

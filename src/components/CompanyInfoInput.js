@@ -98,7 +98,6 @@ const CompanyInfoInput = (props) => {
                             <Form.Item name="AnnualTurnover" noStyle>
                                 <InputNumber style={{ width: "270px" }} />
                             </Form.Item>
-                            <span className="ant-form-text">萬元</span>
                         </Form.Item>
 
                         <Divider />
