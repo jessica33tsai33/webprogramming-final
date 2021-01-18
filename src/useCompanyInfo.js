@@ -7,7 +7,6 @@ const client = new WebSocket('ws://localhost:4000')
 const useCompanyInfo = () => {
   const [info, setInfo] = useState([])
   const [status, setStatus] = useState({})
-  const [opened, setOpened] = useState(false)
 
   client.onmessage = (message) => {
     const { data } = message
@@ -27,10 +26,6 @@ const useCompanyInfo = () => {
     }
   }
 
-  client.onopen = () => {
-    setOpened(true)
-  }
-
   const sendData = (data) => {
     client.send(JSON.stringify(data))
   }
@@ -41,7 +36,6 @@ const useCompanyInfo = () => {
 
   return {
     status,
-    opened,
     info,
     sendInfo
   }

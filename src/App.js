@@ -1,47 +1,15 @@
 import './App.css'
-import React, { useEffect, useRef, useState } from 'react'
-import useChat from './useChat'
+import React, { useState } from 'react'
+import {Input} from 'antd'
+import useCompanyInfo from './useCompanyInfo'
 import Login from './components/Login'
+import CompanyInfoInput from './components/CompanyInfoInput'
 import CompanyInfo from './components/CompanyInfo'
-import { Form, Button, Input, Checkbox, message, Tag } from 'antd'
 
 function App() {
   const [login, setLogin] = useState(false)
   const [infoComplete, setInfoComplete] = useState(false)
-
-  const { status, opened, messages, sendMessage, clearMessages } = useChat()
-
-  const [username, setUsername] = useState('')
-  const [body, setBody] = useState('')
-
-  const bodyRef = useRef(null)
-
-  const displayStatus = (s) => {
-    if (s.msg) {
-      const { type, msg } = s
-      const content = {
-        content: msg,
-        duration: 0.5
-      }
-
-      switch (type) {
-        case 'success':
-          message.success(content)
-          break
-        case 'info':
-          message.info(content)
-          break
-        case 'danger':
-        default:
-          message.error(content)
-          break
-      }
-    }
-  }
-
-  useEffect(() => {
-    displayStatus(status)
-  }, [status])
+  const [companyName, setCompanyName] = useState('')
 
   return (
     (login === false) ?
@@ -52,62 +20,10 @@ function App() {
       ) : (
         (infoComplete === false) ?
           (
-            <CompanyInfo infoComplete={infoComplete} setInfoComplete={setInfoComplete}/>
+            <CompanyInfoInput infoComplete={infoComplete} setInfoComplete={setInfoComplete} companyName={companyName} setCompanyName={setCompanyName} />
           ) : (
-            <div className="App">
-              <div className="App-title">
-                <h1>Simple Chat</h1 >
-                <Button type="primary" danger onClick={clearMessages}>
-                  Clear
-                </Button>
-              </div >
-              <div className="App-messages">
-                {messages.length === 0 ? (
-                  <p style={{ color: '#ccc' }}>
-                    {opened ? 'No messages...' : 'Loading...'}
-                  </p>
-                ) : (
-                    messages.map(({ name, body }, i) => (
-                      <p className="App-message" key={i} style={{ color: `#${name[name.length - 1].charCodeAt(0) % 10}0${name[0].charCodeAt(0) % 10}3${name.length % 10}6` }}>
-                        <Tag color={`#${name[name.length - 1].charCodeAt(0) % 10}9${name[0].charCodeAt(0) % 10}B${name.length % 10}F`} >{name}</Tag> {body}
-                      </p>
-                    ))
-                  )}
-              </div>
-              <Input
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                style={{ marginBottom: 10 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    bodyRef.current.focus()
-                  }
-                }}
-              ></Input>
-              <Input.Search
-                rows={4}
-                value={body}
-                ref={bodyRef}
-                enterButton="Send"
-                onChange={(e) => setBody(e.target.value)}
-                placeholder="Type a message here..."
-                onSearch={(msg) => {
-                  if (!msg || !username) {
-                    displayStatus({
-                      type: 'error',
-                      msg: 'Please enter a username and a message body.'
-                    })
-                    return
-                  }
-
-                  sendMessage({ name: username, body: msg })
-                  setBody('')
-                }}
-              ></Input.Search>
-            </div >
+            <CompanyInfo companyName={companyName}/>
           )
-
       )
   )
 }
