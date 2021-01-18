@@ -90,10 +90,7 @@ const CompanyInfoInput = (props) => {
                                 },
                             ]}>
                             <Select placeholder="Please select an indusdry">
-                                <Option value="food">食品業</Option>
                                 <Option value="light">光電業</Option>
-                                <Option value="computer">電腦與周邊產業</Option>
-                                <Option value="finance">金融業</Option>
                             </Select>
                         </Form.Item>
 
