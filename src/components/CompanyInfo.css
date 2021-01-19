@@ -105,9 +105,9 @@
     text-align: center;
     border: rgb(255, 0, 0);
     border-style: solid;
-    width: 60px;
+    width: 58px;
     line-height: 50px;
-    margin: 10px 35px 15px 35px;
+    margin: 10px 35px 15px 36px;
     border-radius: 50%;
     font-size: 20px;
     color: red;
@@ -117,10 +117,22 @@
     text-align: center;
     border: rgb(0, 0, 0);
     border-style: solid;
-    width: 60px;
+    width: 58px;
     line-height: 50px;
-    margin: 10px 35px 15px 35px;
+    margin: 10px 35px 15px 36px;
     border-radius: 50%;
     font-size: 20px;
     color: rgb(0, 0, 0);
+}
+
+.equal {
+    text-align: center;
+    border: rgb(139, 139, 139);
+    border-style: solid;
+    width: 58px;
+    line-height: 50px;
+    margin: 10px 35px 15px 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(139, 139, 139);
 }

@@ -40,6 +40,16 @@ db.once('open', () => {
       sendData(['status', s])
     }
 
+    CompanyInfo.find()
+      .limit(100)
+      .sort({ _id: 1 })
+      .exec((err, res) => {
+        if (err) throw err
+
+        // initialize app with existing messages
+        sendData(['init', res])
+      })
+
     ws.onmessage = (message) => {
       const { data } = message
       const [task, payload] = JSON.parse(data)

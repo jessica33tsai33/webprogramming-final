@@ -24,6 +24,7 @@ const CompanyInfoInput = (props) => {
         //存資料到資料庫
         props.setInfoComplete(true);
         props.setCompanyName(values.CompanyName);
+        props.setCompanyIndustry(values.CompanyIndustry)
         sendInfo({
             companyName: values.CompanyName,
             companyNumber: values.CompanyNumber,

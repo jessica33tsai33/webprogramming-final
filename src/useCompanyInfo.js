@@ -13,6 +13,10 @@ const useCompanyInfo = () => {
     const [task, payload] = JSON.parse(data)
     console.log(payload);
     switch (task) {
+      case 'init': {
+        setInfo(() => payload)
+        break
+      }
       case 'output': {
         setInfo(() => [...info, ...payload])
         break

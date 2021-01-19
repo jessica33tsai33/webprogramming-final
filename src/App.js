@@ -1,6 +1,6 @@
 import './App.css'
 import React, { useState } from 'react'
-import {Input} from 'antd'
+import { Input } from 'antd'
 import useCompanyInfo from './useCompanyInfo'
 import Login from './components/Login'
 import CompanyInfoInput from './components/CompanyInfoInput'
@@ -10,6 +10,7 @@ function App() {
   const [login, setLogin] = useState(false)
   const [infoComplete, setInfoComplete] = useState(false)
   const [companyName, setCompanyName] = useState('')
+  const [companyIndustry, setCompanyIndustry] = useState('')
 
   return (
     (login === false) ?
@@ -20,9 +21,14 @@ function App() {
       ) : (
         (infoComplete === false) ?
           (
-            <CompanyInfoInput infoComplete={infoComplete} setInfoComplete={setInfoComplete} companyName={companyName} setCompanyName={setCompanyName} />
+            <CompanyInfoInput
+              infoComplete={infoComplete}
+              setInfoComplete={setInfoComplete}
+              companyName={companyName}
+              setCompanyName={setCompanyName} />
           ) : (
-            <CompanyInfo companyName={companyName}/>
+            <CompanyInfo
+              companyName={companyName} />
           )
       )
   )
