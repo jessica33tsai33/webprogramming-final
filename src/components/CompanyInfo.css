@@ -1,9 +1,7 @@
 .Company-info {
     display: block;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
-    /* height: 100vh; */
     width: 1000px;
     margin: auto;
 }
@@ -27,6 +25,12 @@
 
 .Company-data h2 {
     text-align: center;
+    margin-bottom: 0px;
+}
+
+.Company-data h3 {
+    text-align: center;
+    font-weight: bolder;
 }
 
 .Company-data p {
@@ -41,14 +45,14 @@
     color: #a2a0a0;
 }
 
-.ant-row:nth-child(2){
+.company-info-basic {
     justify-content: center;
 }
 
-.ant-row:nth-child(5){
+.company-info-esg {
     display: flex;
     justify-content: space-evenly;
-    padding: 20px 0 20px 0;
+    padding: 0 0 20px 0;
 }
 
 .ant-col{
@@ -56,14 +60,67 @@
     padding: 20px;
 }
 
-.ant-col:nth-child(1) {
+.company-info-governance {
     background-color: rgb(214, 255, 253);
 }
 
-.ant-col:nth-child(2) {
+.company-info-environment {
     background-color: rgb(215, 255, 214);
 }
 
-.ant-col:nth-child(3) {
+.company-info-society {
     background-color: rgb(251, 255, 214);
+}
+
+.performance {
+    background-color: rgb(228, 228, 228);
+}
+
+.company {
+    text-align: right;
+}
+
+.company input{
+    text-align: right;
+}
+
+.performance h2{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.performance-compare h2 {
+    font-weight: bold;
+}
+
+.ESG-title {
+    padding: 5px 0 5px 0;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    margin: 25px 0 15px 0;
+}
+
+.better {
+    text-align: center;
+    border: rgb(255, 0, 0);
+    border-style: solid;
+    width: 60px;
+    line-height: 50px;
+    margin: 10px 35px 15px 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: red;
+}
+
+.worse {
+    text-align: center;
+    border: rgb(0, 0, 0);
+    border-style: solid;
+    width: 60px;
+    line-height: 50px;
+    margin: 10px 35px 15px 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
 }
