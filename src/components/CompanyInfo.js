@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Input, Tabs, Row, Col, Divider } from 'antd'
 import useCompanyInfo from '../useCompanyInfo'
 import './CompanyInfo.css'
@@ -14,7 +14,6 @@ const CompanyInfo = (props) => {
         for (let j = 0; j < length; j++) {
             if (info[j].companyName === name) {
                 index = j;
-                
             }
         }
         return index
@@ -23,40 +22,23 @@ const CompanyInfo = (props) => {
     let i = findCompany(props.companyName);
     let a = findCompany("平均");
 
-    function companyPerformance(indicator) {
+    function companyPerformance(indicator, comp) {
         for (let k = 0; k < info.length; k++) {
             if (info[k].companyName === "平均" && info[k].companyIndustry === info[i].companyIndustry) {
                 if (info[i][indicator] > info[k][indicator]) {
-                    return (
-                        <div className="better">勝</div>
-                    )
+                    if (comp === "big") { return (<div className="better">勝</div>) }
+                    else if (comp === "small") { return (<div className="worse">敗</div>) }
                 }
                 else if (info[i][indicator] === info[k][indicator]) {
-                    return (
-                        <div className="equal">平手</div>
-                    )
+                    return (<div className="equal">平手</div>)
                 }
                 else if (info[i][indicator] < info[k][indicator]) {
-                    return (
-                        <div className="worse">敗</div>
-                    )
+                    if (comp === "big") { return (<div className="worse">敗</div>) }
+                    else if (comp === "small") { return (<div className="better">勝</div>) }
                 }
             }
         }
     }
-
-    const showIndustry = (industry) => {
-        if (industry === "light") {
-            return "光電業"
-        }
-        else if (industry === "food") {
-            return "食品業"
-        }
-        else if (industry === "finance") {
-            return "金融業"
-        }
-    }
-
 
     return (
         <div className="Company-info">
@@ -99,6 +81,9 @@ const CompanyInfo = (props) => {
                                     <p>2020年度權益報酬率 ROE</p>
                                     <Input value={info[i].ROE} disabled={true} />
                                     <span>%</span>
+
+                                    <p>2020年度公司治理評鑑等級</p>
+                                    <Input value={info[i].levelofGovernance} disabled={true} />
                                 </Col>
                                 <Col className="company-info-environment" span={7}>
                                     <h2>環境 Environment</h2>
@@ -149,7 +134,7 @@ const CompanyInfo = (props) => {
                 <TabPane tab="產業資料比較" key="2">
                     {info.length === 0 ? (<p>Data Loading...</p>) : (
                         <div className="Company-data">
-                            <h2>在{showIndustry(info[i].companyIndustry)}中，{props.companyName}的ESG表現</h2>
+                            <h2>在{info[i].companyIndustry}中，{props.companyName}的ESG表現</h2>
 
                             <Row className="company-info-esg">
                                 <Col className="ESG-title company-info-governance" span={24}>
@@ -164,11 +149,15 @@ const CompanyInfo = (props) => {
                                     <p>2020年度權益報酬率 ROE</p>
                                     <Input value={info[i].ROE} disabled={true} />
                                     <span>%</span>
+
+                                    <p>2020年度公司治理評鑑等級</p>
+                                    <Input value={info[i].levelofGovernance} disabled={true} />
                                 </Col>
                                 <Col className="performance-compare" span={4}>
-                                    <h2>表現</h2>
-                                    {companyPerformance("EPS")}
-                                    {companyPerformance("ROE")}
+                                    <h2>公司表現</h2>
+                                    {companyPerformance("EPS", "big")}
+                                    {companyPerformance("ROE", "big")}
+                                    {companyPerformance("levelofGovernance", "small")}
                                 </Col>
                                 <Col className="performance" span={10}>
                                     <h2>產業平均</h2>
@@ -179,6 +168,9 @@ const CompanyInfo = (props) => {
                                     <p>2020年度權益報酬率 ROE</p>
                                     <Input value={info[a].ROE} disabled={true} />
                                     <span>%</span>
+
+                                    <p>2020年度公司治理評鑑等級</p>
+                                    <Input value={info[a].levelofGovernance} disabled={true} />
                                 </Col>
                                 <Col className="ESG-title company-info-environment" span={24}>
                                     環境 Environment
@@ -210,13 +202,13 @@ const CompanyInfo = (props) => {
                                     <span>公噸</span>
                                 </Col>
                                 <Col className="performance-compare" span={4}>
-                                    <h2>表現</h2>
-                                    {companyPerformance("annualWaterUsage")}
-                                    {companyPerformance("annualWaterReturn")}
-                                    {companyPerformance("scope1")}
-                                    {companyPerformance("scope2")}
-                                    {companyPerformance("scope3")}
-                                    {companyPerformance("waste")}
+                                    <h2>公司表現</h2>
+                                    {companyPerformance("annualWaterUsage", "small")}
+                                    {companyPerformance("annualWaterReturn", "big")}
+                                    {companyPerformance("scope1", "small")}
+                                    {companyPerformance("scope2", "small")}
+                                    {companyPerformance("scope3", "small")}
+                                    {companyPerformance("waste", "small")}
                                 </Col>
                                 <Col className="performance" span={10}>
                                     <h2>產業平均</h2>
@@ -262,10 +254,10 @@ const CompanyInfo = (props) => {
                                     <span>人</span>
                                 </Col>
                                 <Col className="performance-compare" span={4}>
-                                    <h2>表現</h2>
-                                    {companyPerformance("societyExpense")}
-                                    {companyPerformance("societyPerformance")}
-                                    {companyPerformance("volunteer")}
+                                    <h2>公司表現</h2>
+                                    {companyPerformance("societyExpense", "big")}
+                                    {companyPerformance("societyPerformance", "big")}
+                                    {companyPerformance("volunteer", "big")}
                                 </Col>
                                 <Col className="performance" span={10}>
                                     <h2>產業平均</h2>

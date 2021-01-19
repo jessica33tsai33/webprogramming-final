@@ -10,7 +10,6 @@ function App() {
   const [login, setLogin] = useState(false)
   const [infoComplete, setInfoComplete] = useState(false)
   const [companyName, setCompanyName] = useState('')
-  const [companyIndustry, setCompanyIndustry] = useState('')
 
   return (
     (login === false) ?

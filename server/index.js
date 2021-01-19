@@ -5,7 +5,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const WebSocket = require('ws')
 
-const Message = require('./models/message')
+// const Message = require('./models/message')
 const CompanyInfo = require('./models/companyInfo')
 
 const app = express()
@@ -40,7 +40,11 @@ db.once('open', () => {
       sendData(['status', s])
     }
 
-    CompanyInfo.find()
+    
+
+    ws.onmessage = (message) => {
+
+      CompanyInfo.find()
       .limit(100)
       .sort({ _id: 1 })
       .exec((err, res) => {
@@ -50,7 +54,7 @@ db.once('open', () => {
         sendData(['init', res])
       })
 
-    ws.onmessage = (message) => {
+      
       const { data } = message
       const [task, payload] = JSON.parse(data)
 

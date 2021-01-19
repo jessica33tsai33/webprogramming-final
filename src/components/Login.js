@@ -1,6 +1,6 @@
 import './Login.css'
 import React, { useState } from 'react'
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 
 //form style
 const layout = {

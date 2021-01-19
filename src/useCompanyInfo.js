@@ -14,6 +14,7 @@ const useCompanyInfo = () => {
     console.log(payload);
     switch (task) {
       case 'init': {
+        console.log("init")
         setInfo(() => payload)
         break
       }

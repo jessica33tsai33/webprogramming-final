@@ -60,6 +60,10 @@
     padding: 20px;
 }
 
+.company_info_input .ant-form-item{
+    margin-bottom: 0px;
+}
+
 .company-info-governance {
     background-color: rgb(214, 255, 253);
 }
@@ -107,7 +111,7 @@
     border-style: solid;
     width: 58px;
     line-height: 50px;
-    margin: 10px 35px 15px 36px;
+    margin: 13px 35px 20px 36px;
     border-radius: 50%;
     font-size: 20px;
     color: red;
@@ -119,7 +123,7 @@
     border-style: solid;
     width: 58px;
     line-height: 50px;
-    margin: 10px 35px 15px 36px;
+    margin: 13px 35px 20px 36px;
     border-radius: 50%;
     font-size: 20px;
     color: rgb(0, 0, 0);
@@ -131,7 +135,7 @@
     border-style: solid;
     width: 58px;
     line-height: 50px;
-    margin: 10px 35px 15px 36px;
+    margin: 13px 35px 20px 36px;
     border-radius: 50%;
     font-size: 20px;
     color: rgb(139, 139, 139);
