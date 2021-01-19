@@ -3,20 +3,16 @@ import React, { useState } from 'react'
 import { Form, Input, Button } from 'antd';
 
 //form style
-const layout = {
-    labelCol: {
-        span: 10,
-    },
-    wrapperCol: {
-        span: 5,
-    },
-};
-const tailLayout = {
-    wrapperCol: {
-        offset: 10,
-        span: 5,
-    },
-};
+// const layout = {
+//     labelCol: { span: 8 },
+//     wrapperCol: { span: 10 }
+// };
+// const tailLayout = {
+//     wrapperCol: {
+//         offset: 10,
+//         span: 5,
+//     }
+// };
 
 const Login = (props) => {
 
@@ -40,41 +36,47 @@ const Login = (props) => {
 
     return (
         <div className="login">
-            <Form {...layout} name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed}>
-                <Form.Item
-                    label="Username"
-                    name="username"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your username!',
-                        },
-                    ]}>
-                    <Input />
-                </Form.Item>
+            <div className="login-title">
+                <h1>企業ESG資料網</h1>
 
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your password!',
-                        },
-                    ]}>
-                    <Input.Password />
-                </Form.Item>
+                <div className="login-input">
+                    <Form name="basic" onFinish={onFinish} onFinishFailed={onFinishFailed}>
+                        <Form.Item
+                            label="Username"
+                            name="username"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your username!',
+                                },
+                            ]}>
+                            <Input />
+                        </Form.Item>
 
-                {(errormsg === true)
-                    ? (<div style={{ color: 'red' }}>*You entered a wrong login information, please try again...</div>)
-                    : (<div></div>)}
+                        <Form.Item
+                            label="Password"
+                            name="password"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your password!',
+                                },
+                            ]}>
+                            <Input.Password />
+                        </Form.Item>
 
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Submit
+                        {(errormsg === true)
+                            ? (<div style={{ color: 'red' }}>*You entered a wrong login information, please try again...</div>)
+                            : (<div></div>)}
+
+                        <Form.Item>
+                            <Button type="primary" htmlType="submit">
+                                Submit
                 </Button>
-                </Form.Item>
-            </Form>
+                        </Form.Item>
+                    </Form>
+                </div>
+            </div>
         </div>
     );
 };

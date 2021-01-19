@@ -1,7 +1,5 @@
 import './App.css'
 import React, { useState } from 'react'
-import { Input } from 'antd'
-import useCompanyInfo from './useCompanyInfo'
 import Login from './components/Login'
 import CompanyInfoInput from './components/CompanyInfoInput'
 import CompanyInfo from './components/CompanyInfo'
@@ -14,9 +12,7 @@ function App() {
   return (
     (login === false) ?
       (
-        <div>
-          <Login login={login} setLogin={setLogin} />
-        </div>
+        <Login login={login} setLogin={setLogin} />
       ) : (
         (infoComplete === false) ?
           (

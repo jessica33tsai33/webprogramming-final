@@ -2,8 +2,34 @@
     padding-top: 100px;
     height: 100vh;
     background-color: rgb(190, 190, 190);
+    justify-content: center;
+    display: flex;
 }
 
-.login .ant-form-item{
+.login .login-title{
+    text-align: center;
+}
+
+.login .ant-form-item-label{
+    padding-bottom: 0px;
+}
+
+.login .ant-form-item-control{
+    padding-bottom: 0px;
+}
+
+.login .ant-row{
     margin-bottom: 0px;
+}
+
+.login-input{
+    padding: 30px 0 30px 0;
+    background-color: white;
+    width: 400px;
+    height: 220px;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: revert;
+    border-radius: 20px;
 }

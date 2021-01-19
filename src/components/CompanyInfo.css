@@ -2,8 +2,9 @@
     display: block;
     align-items: center;
     justify-content: center;
-    width: 1000px;
     margin: auto;
+    padding: 80px 100px 0 100px;
+    background-color: white;
 }
 
 .Company-title {
