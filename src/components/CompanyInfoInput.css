@@ -11,9 +11,12 @@
 }
 
 .logo {
-    float: left;
-    width: 120px;
-    height: 31px;
-    padding: 16px 24px 16px 0;
-    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 22px;
+    font-style: italic;
+    font-family: fantasy;
+}
+
+.logo span{
+    font-size: 32px;
 }

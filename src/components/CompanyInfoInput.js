@@ -16,7 +16,7 @@ const CompanyInfoInput = (props) => {
     const { sendInfo } = useCompanyInfo()
 
     const onFinish = (values) => {
-        console.log('Received values of form: ', values);
+        // console.log('Received values of form: ', values);
         //存資料到資料庫
         props.setInfoComplete(true);
         props.setCompanyName(values.CompanyName);
@@ -46,6 +46,9 @@ const CompanyInfoInput = (props) => {
         <Layout>
             {message.error({content: "尚未填寫公司基本資料", duration: 0.5})}
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+                <div className="logo">
+                    <a href="http://esgdbwebfinal.hopto.org:3300/">online<span>ESGdb</span></a>
+                </div>
             </Header>
             <Layout>
                 <Content>

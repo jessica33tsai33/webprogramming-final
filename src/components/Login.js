@@ -2,24 +2,12 @@ import './Login.css'
 import React, { useState } from 'react'
 import { Form, Input, Button } from 'antd';
 
-//form style
-// const layout = {
-//     labelCol: { span: 8 },
-//     wrapperCol: { span: 10 }
-// };
-// const tailLayout = {
-//     wrapperCol: {
-//         offset: 10,
-//         span: 5,
-//     }
-// };
-
 const Login = (props) => {
 
     const [errormsg, setErrormsg] = useState(false);
 
     const onFinish = (values) => {
-        console.log('Success:', values);
+        // console.log('Success:', values);
         if (values.username === "ric" && values.password === "webprogramming") {
             props.setLogin(true)
             setErrormsg(false)

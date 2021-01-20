@@ -44,18 +44,21 @@ const CompanyInfo = (props) => {
     }
 
     const showLevelOfGovernance = (value) => {
-        if(value === "0") return "0% ~ 5%"
-        else if(value === "1") return "6% ~ 20%"
-        else if(value === "2") return "21% ~ 35%"
-        else if(value === "3") return "36% ~ 50%"
-        else if(value === "4") return "51% ~ 65%"
-        else if(value === "5") return "66% ~ 80%"
-        else if(value === "6") return "81% ~ 100%"
+        if (value === "0") return "0% ~ 5%"
+        else if (value === "1") return "6% ~ 20%"
+        else if (value === "2") return "21% ~ 35%"
+        else if (value === "3") return "36% ~ 50%"
+        else if (value === "4") return "51% ~ 65%"
+        else if (value === "5") return "66% ~ 80%"
+        else if (value === "6") return "81% ~ 100%"
     }
 
     return (
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+                <div className="logo">
+                    <a href="http://esgdbwebfinal.hopto.org:3300/">online<span>ESGdb</span></a>
+                </div>
             </Header>
             <Layout>
                 <Content>

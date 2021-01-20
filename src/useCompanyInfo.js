@@ -1,7 +1,4 @@
 import { useState } from 'react'
-// import { w3cwebsocket as W3CWebSocket } from 'websocket'
-
-// const client = new W3CWebSocket('ws://localhost:4000')
 const client = new WebSocket('ws://140.112.63.231:4000')
 
 const useCompanyInfo = () => {
@@ -11,10 +8,10 @@ const useCompanyInfo = () => {
   client.onmessage = (message) => {
     const { data } = message
     const [task, payload] = JSON.parse(data)
-    console.log(payload);
+    // console.log(payload);
     switch (task) {
       case 'init': {
-        console.log("init")
+        // console.log("init")
         setInfo(() => payload)
         break
       }
