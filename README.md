@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# online ESG Database Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一個線上企業ESG資料庫平台，當市場上大部份企業都在平台上輸入資料，並且經過第三方認證機構確信後，此資料庫可做為企業ESG表現的一個完整資料庫，並且可在平台上看到自己公司的ESG表現是否勝過同產業的其他企業平均
 
-## Available Scripts
+## Environment
 
-In the project directory, you can run:
+- Frontend: ReactJS
+- Backend: NodeJS
+- Database: Mongoose
 
-### `yarn start`
+## Product
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The website is deployed online [here](http://esgdbwebfinal.hopto.org:3300/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Future
 
-### `yarn test`
+- 目前進度：開發到使用者可以輸入資料進資料庫，並可以從資料庫中取回個人以及產業平均的資料，並展現勝負在平台上
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 未來展望：
+    - 實際製作使用者功能，若已填寫過企業基本資料後即可直接跳到展示資訊頁面
+    - 製作第三方機構帳戶頁面，登入後可看到那些企業選擇他們作為認證機構，並且可看到那些企業所填的資料，再逐筆認證，確信後在企業端的頁面也顯示已經過認證
