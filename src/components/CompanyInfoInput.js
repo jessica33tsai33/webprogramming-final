@@ -11,8 +11,6 @@ const formItemLayout = {
     wrapperCol: { span: 6 },
 };
 
-let i = 0;
-
 const CompanyInfoInput = (props) => {
 
     const { sendInfo } = useCompanyInfo()
@@ -79,13 +77,13 @@ const CompanyInfoInput = (props) => {
 
                         <Form.Item label="公司治理評鑑等級" name="LevelofGovernance">
                             <Select placeholder="Please select an option">
-                                <Option value="0% ~ 5%">0% ~ 5%</Option>
-                                <Option value="6% ~ 20%">6% ~ 20%</Option>
-                                <Option value="21% ~ 35%">21% ~ 35%</Option>
-                                <Option value="36% ~ 50%">36% ~ 50%</Option>
-                                <Option value="51% ~ 65%">51% ~ 65%</Option>
-                                <Option value="66% ~ 80%">66% ~ 80%</Option>
-                                <Option value="81% ~ 100%">81% ~ 100%</Option>
+                                <Option value="0">0% ~ 5%</Option>
+                                <Option value="1">6% ~ 20%</Option>
+                                <Option value="2">21% ~ 35%</Option>
+                                <Option value="3">36% ~ 50%</Option>
+                                <Option value="4">51% ~ 65%</Option>
+                                <Option value="5">66% ~ 80%</Option>
+                                <Option value="6">81% ~ 100%</Option>
                             </Select>
                         </Form.Item>
 

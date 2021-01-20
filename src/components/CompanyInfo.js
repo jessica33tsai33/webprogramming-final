@@ -43,6 +43,16 @@ const CompanyInfo = (props) => {
         }
     }
 
+    const showLevelOfGovernance = (value) => {
+        if(value === "0") return "0% ~ 5%"
+        else if(value === "1") return "6% ~ 20%"
+        else if(value === "2") return "21% ~ 35%"
+        else if(value === "3") return "36% ~ 50%"
+        else if(value === "4") return "51% ~ 65%"
+        else if(value === "5") return "66% ~ 80%"
+        else if(value === "6") return "81% ~ 100%"
+    }
+
     return (
         <Layout>
             <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
@@ -91,7 +101,7 @@ const CompanyInfo = (props) => {
                                                 <span>%</span>
 
                                                 <p>2020年度公司治理評鑑等級</p>
-                                                <Input value={info[i].levelofGovernance} disabled={true} />
+                                                <Input value={showLevelOfGovernance(info[i].levelofGovernance)} disabled={true} />
                                             </Col>
                                             <Col className="company-info-environment" span={7}>
                                                 <h2>環境 Environment</h2>
@@ -147,7 +157,7 @@ const CompanyInfo = (props) => {
                                         <Row className="company-info-esg">
                                             <Col className="ESG-title company-info-governance" span={24}>
                                                 治理 Governance
-                                </Col>
+                                            </Col>
                                             <Col className="performance company" span={10}>
                                                 <h2>公司資料</h2>
                                                 <p>2020年度每股盈餘 EPS</p>
@@ -159,7 +169,7 @@ const CompanyInfo = (props) => {
                                                 <span>%</span>
 
                                                 <p>2020年度公司治理評鑑等級</p>
-                                                <Input value={info[i].levelofGovernance} disabled={true} />
+                                                <Input value={showLevelOfGovernance(info[i].levelofGovernance)} disabled={true} />
                                             </Col>
                                             <Col className="performance-compare" span={4}>
                                                 <h2>公司表現</h2>
@@ -178,11 +188,11 @@ const CompanyInfo = (props) => {
                                                 <span>%</span>
 
                                                 <p>2020年度公司治理評鑑等級</p>
-                                                <Input value={info[a].levelofGovernance} disabled={true} />
+                                                <Input value={showLevelOfGovernance(info[a].levelofGovernance)} disabled={true} />
                                             </Col>
                                             <Col className="ESG-title company-info-environment" span={24}>
                                                 環境 Environment
-                                </Col>
+                                            </Col>
                                             <Col className="performance company" span={10}>
                                                 <h2>公司資料</h2>
                                                 <p>2020年度總體用水量</p>
