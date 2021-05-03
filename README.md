@@ -3,6 +3,7 @@
 一個線上企業ESG資料庫平台，當市場上大部份企業都在平台上輸入資料，並且經過第三方認證機構確信後，此資料庫可做為企業ESG表現的一個完整資料庫，並且可在平台上看到自己公司的ESG表現是否勝過同產業的其他企業平均。
 
 網站介紹影片：https://youtu.be/EojMAu0I8aM
+
 網站操作影片：https://youtu.be/ZoG4pvHJhLc
 
 ## Environment
